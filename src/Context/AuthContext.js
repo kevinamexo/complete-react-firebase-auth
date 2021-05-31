@@ -44,6 +44,10 @@ export function AuthProvider({children}) {
     function updatePassword(password) {
         return currentUser.updatePassword(password)
     }
+    
+    //  function signupWithEmail(email){
+    //     return auth.sendSignInLinkToEmail(email, actionCodeSettings)
+    //  }
     useEffect(()=>{
         const unsubscribe= auth.onAuthStateChanged(user=>{  
             setCurrentUser(user)
@@ -53,8 +57,6 @@ export function AuthProvider({children}) {
         return unsubscribe
 
     },[])
-   
-
 
     return (
         <AuthContext.Provider value={value}>

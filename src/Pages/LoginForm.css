@@ -4,7 +4,7 @@ button{
 
 .login-page{
     background-color:#FAFAFA;
-    height: calc(100vh);
+    height: calc(100vh-40px);
     display: flex;
     justify-content: center;
 }
@@ -16,7 +16,7 @@ button{
     display: flex;
     flex-direction: column;
     margin-top: 60px;
-    padding:0px 30px;
+    padding:20px 25px;
     background-color: #ffffff;
     border-radius: 5px;
     border:1px solid rgb(221, 221, 221);
@@ -51,10 +51,10 @@ button{
     font-weight: bold;
     font-size: 25px;
     padding: 0;
-    margin: 0;
+    margin-top: 20px;
 }
 .login-services-container{
-    height: 28%;
+    height: 31%;
     display: flex;
     align-items: center;
     /* background-color: yellowgreen; */
@@ -63,15 +63,15 @@ button{
     height: 70%;
     width: 100%;
     list-style-type: none;
-    padding:10px 0;
+    padding: 10px 0;
     display: flex;
     flex-direction: column;
-    justify-content:space-between;
+    justify-content: space-between;
 }
 .login-service-item button{
     width: 100%;
     height: 32px;
-    padding: 5px;
+    padding: 18px 5px;
     outline: none;
     border: 1px solid rgb(221, 221, 221);
     background-color: #ffffff;
@@ -80,7 +80,6 @@ button{
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
 .login-service:hover{
@@ -92,7 +91,7 @@ button{
 
 
 .login-form{
-    height:35%;
+    height:37%;
     border-top: 1px solid rgb(221, 221, 221);
     border-bottom: 1px solid rgb(221, 221, 221);
     display: flex;
@@ -106,6 +105,7 @@ button{
     height: 60px;
     display: flex;
     flex-direction: column;
+    position: relative;
 
 }
 .form-group input{
@@ -113,6 +113,21 @@ button{
     border-radius: 3px;
     padding: 8px;
     border: 1px solid rgb(221, 221, 221);
+}
+.login-form__show-hide-password{
+    position:absolute;
+    top: 52%;
+    right:10px;
+    font-size: 18px;
+    cursor: pointer;
+    color:rgb(114, 114, 114);
+    display: flex;
+    align-items: center;
+    padding:2px;
+    border-radius: 2px;
+}
+.login-form__show-hide-password:hover{
+    background-color: rgb(221, 221, 221);
 }
 
 .login-button{
@@ -128,6 +143,7 @@ button{
 .keep-logged-in{
     display: flex;
     align-items: center;
+    margin-top: 20px;
 }
 .keep-logged-in input{
 
@@ -155,6 +171,7 @@ label{
     justify-content: center;
     text-align: center;
     align-items: center;
+    margin-top: 20px;
 }
 
 .login-footer p{
@@ -165,4 +182,5 @@ label{
     font-size: 13px;
     text-decoration: none;
     margin-left: 5px;
+   
 }

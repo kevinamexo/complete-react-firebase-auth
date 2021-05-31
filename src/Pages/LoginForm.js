@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {useForm} from 'react-hook-form'
 import {GoTasklist} from 'react-icons/go'
 import {FcGoogle} from 'react-icons/fc'
-import {AiFillApple} from 'react-icons/ai'
+import {AiFillApple,AiOutlineEyeInvisible,AiOutlineEye} from 'react-icons/ai'
 import {ImFacebook2} from 'react-icons/im'
 import { yupResolver } from '@hookform/resolvers/yup';
 import {useAuth} from '../Context/AuthContext'
@@ -15,6 +15,7 @@ export const LoginForm=()=>{
   const history= useHistory()
   const location=useLocation()
   const auth= useAuth()
+  const [visiblePassword, setVisiblePassword]= useState(false)
   const loginSchema= yup.object().shape({
     email: yup.string().required("Email address is required"),
     password: yup.string().required("Password is required")
@@ -67,7 +68,8 @@ export const LoginForm=()=>{
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
-          <input type="text" {...register("password")}/>
+          <input type={visiblePassword? "text":"password"} {...register("password")}/>
+          <i className="login-form__show-hide-password" onClick={()=>setVisiblePassword(!visiblePassword)}>{visiblePassword?<AiOutlineEye/>:<AiOutlineEyeInvisible/>}</i>
           <p>{errors.password?.message}</p>
         </div>
         <button className="login-button" type="submit">Login</button>

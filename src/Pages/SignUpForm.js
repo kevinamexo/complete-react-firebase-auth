@@ -1,10 +1,15 @@
 import React, {useState} from 'react';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { toast } from 'react-toastify';
 import { useAuth } from '../Context/AuthContext'
 import { useHistory } from 'react-router-dom';
+import './SignUpForm.css'
 import * as yup from 'yup';
+import { FcGoogle } from 'react-icons/fc';
+import { ImFacebook2 } from 'react-icons/im';
+import { AiFillApple } from 'react-icons/ai';
+import { GoTasklist } from 'react-icons/go';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import {Link} from 'react-router-dom'
 
 
 
@@ -70,38 +75,80 @@ export const SignupForm = () => {
 
 
   return (
-    <>
-      <form onSubmit={handleSubmit(submitRegisterForm)}>
-        <div>
-          <label htmlFor="firstName">First Name</label>
-          <input type="text" {...register('firstName')} />
-          <p>{errors.firstName?.message}</p>
+    <div className="signup-page">
+      <div className="signup-page-container">
+        <span className="signup-page-header">
+          <GoTasklist className="signup-logo" />
+          <p className="signup-logo-text">todoist</p>
+        </span>
+        <p className="signup-text">Sign up</p>
+        <div className="signup-services-container">
+          <ul className="signup-services-list">
+            <li className="signup-service-item">
+              <button className="signup-service">
+                <FcGoogle className="signup-google-icon" />
+                <p>Continue with Google</p>
+              </button>
+            </li>
+            <li className="signup-service-item">
+              <button className="signup-service">
+                <ImFacebook2 className=" signup-fb-icon" />{' '}
+                <p>Continue with Facebook</p>
+              </button>
+            </li>
+            <li className="signup-service-item">
+              <button className="signup-service">
+                <AiFillApple className="signup-apple-icon"/>
+                <p>Continue with Apple</p>
+              </button>
+            </li>
+          </ul>
         </div>
-        <div>
-          <label htmlFor="lastName">Last Name</label>
-          <input type="text" {...register('lastName')} />
-          <p>{errors.lastName?.message}</p>
-        </div>
-        <div>
-          <label htmlFor="email">Email address</label>
-          <input type="text" {...register('email')} />
-          <p>{errors.email?.message}</p>
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input type="text" {...register('password')} />
-          <p>{errors.password?.message}</p>
-        </div>
-        <div>
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input type="text" {...register('confirmPassword')} />
-          <p>{errors.confirmPassword?.message}</p>
-        </div>
-        <button type="submit">Sign Up</button>
-      </form>
-      <p>{errorMsg&& errorMsg}</p>
-    </>
+        <form className="signup-form" onSubmit={handleSubmit(submitRegisterForm)}>
+          {/* <div className="form-group">
+            <label htmlFor="firstName">Name</label>
+            <input type="text" {...register('name')} />
+            <p>{errors.firstName?.message}</p>
+          </div> */}
+          {/* <div className="form-group">
+            <label htmlFor="lastName">Last Name</label>
+            <input type="text" {...register('lastName')} />
+            <p>{errors.lastName?.message}</p>
+          </div> */}
+          <div className="form-group">
+            <label htmlFor="email">Email address</label>
+            <input type="text" {...register('email')} />
+            <p>{errors.email?.message}</p>
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input type="text" {...register('password')} />
+            <p>{errors.password?.message}</p>
+          </div> 
+          <div className="form-group">
+            <label htmlFor="confirmPassword">Confirm Password</label>
+            <input type="text" {...register('confirmPassword')} />
+            <p>{errors.confirmPassword?.message}</p>
+          </div>
+          <button className="signup-button" type="submit">
+            Sign Up with Email
+          </button>
+          <p className="terms">
+            By continuing with Google, Apple, or Email, you agree to Todoist's
+            Terms of Service and Privacy Policy.
+          </p>
+        </form>
+        <p className="already-signedup">
+          Already signed up? <Link  className="already-signedup__loginLink" to='/login'>Go to login</Link>
+        </p>
+        <p>{errorMsg&& errorMsg}</p>
+      </div>
+    </div>
   );
 };
 
 export default SignupForm;
+
+
+
+
